@@ -1,10 +1,12 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CalendarClock, MapPin, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Calendar } from "@/components/ui/calendar";
+import { format } from "date-fns";
 
 // Mock events data
 const events = [
@@ -70,7 +72,49 @@ const getTypeColor = (type: string) => {
   }
 };
 
+// Helper to convert date strings to Date objects
+const parseDate = (dateString: string) => {
+  const [year, month, day] = dateString.split('-').map(Number);
+  return new Date(year, month - 1, day);
+};
+
+// Helper to check if a date has events
+const hasEventOnDate = (date: Date, eventsList: typeof events) => {
+  return eventsList.some(event => {
+    const eventDate = parseDate(event.date);
+    return (
+      eventDate.getDate() === date.getDate() &&
+      eventDate.getMonth() === date.getMonth() &&
+      eventDate.getFullYear() === date.getFullYear()
+    );
+  });
+};
+
+// Helper to get events for a specific date
+const getEventsForDate = (date: Date, eventsList: typeof events) => {
+  return eventsList.filter(event => {
+    const eventDate = parseDate(event.date);
+    return (
+      eventDate.getDate() === date.getDate() &&
+      eventDate.getMonth() === date.getMonth() &&
+      eventDate.getFullYear() === date.getFullYear()
+    );
+  });
+};
+
 export function EventCalendar() {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [selectedEvents, setSelectedEvents] = useState<typeof events>([]);
+
+  // Update selected events when date changes
+  React.useEffect(() => {
+    if (date) {
+      setSelectedEvents(getEventsForDate(date, events));
+    } else {
+      setSelectedEvents([]);
+    }
+  }, [date]);
+
   return (
     <div className="py-16 px-4 sm:px-6 lg:px-8 bg-tennis-light">
       <div className="container mx-auto">
@@ -100,39 +144,23 @@ export function EventCalendar() {
             className="bg-white rounded-xl shadow-subtle overflow-hidden col-span-full md:col-span-1"
           >
             <div className="bg-tennis-blue text-white p-4 text-center">
-              <h3 className="font-medium">November 2023</h3>
+              <h3 className="font-medium">
+                {date ? format(date, 'MMMM yyyy') : 'Select a date'}
+              </h3>
             </div>
             <div className="p-4">
-              <div className="grid grid-cols-7 gap-1 text-center text-sm mb-2">
-                {["M", "T", "W", "T", "F", "S", "S"].map((day) => (
-                  <div key={day} className="py-2 text-muted-foreground font-medium">
-                    {day}
-                  </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-7 gap-1 text-center">
-                {Array.from({ length: 30 }, (_, i) => i + 1).map((day) => {
-                  const hasEvent = events.some(
-                    (event) => 
-                      new Date(event.date).getDate() === day && 
-                      new Date(event.date).getMonth() === 10 // November (0-indexed)
-                  );
-                  
-                  return (
-                    <div
-                      key={day}
-                      className={cn(
-                        "h-10 flex items-center justify-center rounded-full text-sm",
-                        hasEvent 
-                          ? "bg-tennis-blue/10 text-tennis-blue font-medium" 
-                          : "hover:bg-muted/50 cursor-pointer"
-                      )}
-                    >
-                      {day}
-                    </div>
-                  );
-                })}
-              </div>
+              <Calendar
+                mode="single"
+                selected={date}
+                onSelect={setDate}
+                className="rounded-md border"
+                modifiers={{
+                  hasEvent: (date) => hasEventOnDate(date, events)
+                }}
+                modifiersClassNames={{
+                  hasEvent: "bg-tennis-blue/10 text-tennis-blue font-medium"
+                }}
+              />
               <div className="mt-4 flex flex-wrap gap-2">
                 <Badge className="bg-tennis-blue">Matches</Badge>
                 <Badge className="bg-tennis-green">Training</Badge>
@@ -151,9 +179,13 @@ export function EventCalendar() {
             className="bg-white rounded-xl shadow-subtle col-span-full md:col-span-2"
           >
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-4">Upcoming Events</h3>
+              <h3 className="text-xl font-semibold mb-4">
+                {selectedEvents.length > 0 
+                  ? `Events on ${date ? format(date, 'MMMM d, yyyy') : ''}` 
+                  : "Upcoming Events"}
+              </h3>
               <div className="space-y-4">
-                {events.map((event, i) => (
+                {(selectedEvents.length > 0 ? selectedEvents : events).map((event, i) => (
                   <motion.div
                     key={event.id}
                     initial={{ opacity: 0, x: 20 }}
@@ -164,10 +196,10 @@ export function EventCalendar() {
                   >
                     <div className="mr-4 w-16 h-16 flex flex-col items-center justify-center rounded-lg bg-muted text-center">
                       <span className="text-sm text-muted-foreground">
-                        {new Date(event.date).toLocaleString('default', { month: 'short' })}
+                        {format(parseDate(event.date), 'MMM')}
                       </span>
                       <span className="text-2xl font-bold text-tennis-dark">
-                        {new Date(event.date).getDate()}
+                        {format(parseDate(event.date), 'd')}
                       </span>
                     </div>
                     
