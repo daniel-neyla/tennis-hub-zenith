@@ -8,28 +8,15 @@ export function Hero() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background */}
-      <div className="absolute inset-0 bg-white z-0" />
+      <div className="absolute inset-0 bg-tennis-green z-0" />
       
-      {/* Tennis court lines - detailed version */}
+      {/* Tennis court T-line cross only */}
       <div className="absolute inset-0 z-0">
-        {/* Outer border */}
-        <div className="h-full w-full border-4 border-tennis-green/30 m-auto relative">
-          {/* Center line */}
-          <div className="absolute top-0 bottom-0 left-1/2 w-1 bg-tennis-green/20 transform -translate-x-1/2" />
-          
-          {/* Service boxes */}
-          <div className="absolute top-1/4 bottom-1/4 left-0 right-0 border-2 border-tennis-green/20">
-            {/* Center service line */}
-            <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-tennis-green/20 transform -translate-x-1/2" />
-            
-            {/* Horizontal service line */}
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-tennis-green/20 transform -translate-y-1/2" />
-          </div>
-          
-          {/* Baseline extras */}
-          <div className="absolute bottom-0 left-1/3 right-1/3 h-4 border-l-2 border-r-2 border-tennis-green/20" />
-          <div className="absolute top-0 left-1/3 right-1/3 h-4 border-l-2 border-r-2 border-tennis-green/20" />
-        </div>
+        {/* Center line (vertical part of T) */}
+        <div className="absolute top-0 bottom-0 left-1/2 w-1 bg-white/20 transform -translate-x-1/2" />
+        
+        {/* Horizontal part of T */}
+        <div className="absolute top-1/2 left-0 right-0 h-1 bg-white/20 transform -translate-y-1/2" />
       </div>
 
       <div className="container relative z-10 px-4 sm:px-6 lg:px-8 mx-auto">
@@ -39,7 +26,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="text-4xl font-bold tracking-tight text-tennis-green sm:text-5xl md:text-6xl mb-6">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl mb-6">
               <span className="block">One platform for all your</span>
               <span className="block text-tennis-yellow mt-2 drop-shadow-sm">
                 tennis club needs
@@ -51,7 +38,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto"
+            className="mt-6 text-xl text-white/90 max-w-3xl mx-auto"
           >
             EULTC's comprehensive hub centralizing match sign-ups, results, reports, and 
             reimbursements—simplifying communication and administration for players, 
@@ -64,13 +51,13 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" className="px-8 bg-tennis-green hover:bg-tennis-green/90 text-white">
+            <Button size="lg" className="px-8 bg-tennis-yellow hover:bg-tennis-yellow/90 text-tennis-green font-medium">
               Sign Up for Matches
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="group border-tennis-green text-tennis-green hover:bg-tennis-green/10"
+              className="group border-white text-white hover:bg-white/10"
             >
               View Match Results
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

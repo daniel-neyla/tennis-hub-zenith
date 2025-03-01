@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -31,7 +32,6 @@ export default {
 				tennis: {
 					green: 'rgb(38,68,41)',
 					yellow: 'rgb(253,220,38)',
-					blue: '#3A82EE',
 					light: '#F5F5F7',
 					dark: '#1D1D1F',
 				},

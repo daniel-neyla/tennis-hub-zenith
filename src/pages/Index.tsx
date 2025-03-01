@@ -72,7 +72,7 @@ const Index = () => {
       <Hero />
       
       {/* Features Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -81,7 +81,7 @@ const Index = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-tennis-dark mb-4">
+            <h2 className="text-3xl font-bold text-tennis-green mb-4">
               One Platform for Everything Tennis
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
