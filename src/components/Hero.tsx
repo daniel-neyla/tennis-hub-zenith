@@ -7,15 +7,28 @@ import { ArrowRight } from "lucide-react";
 export function Hero() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-tennis-blue/5 to-tennis-green/5 z-0" />
+      {/* Background */}
+      <div className="absolute inset-0 bg-white z-0" />
       
-      {/* Tennis court lines - decorative background */}
-      <div className="absolute inset-0 z-0 opacity-5">
-        <div className="h-full w-full border-4 border-tennis-dark m-auto">
-          <div className="h-full w-1/2 border-r-4 border-tennis-dark relative">
-            <div className="absolute w-[30%] h-full right-0 border-l-4 border-tennis-dark" />
+      {/* Tennis court lines - detailed version */}
+      <div className="absolute inset-0 z-0">
+        {/* Outer border */}
+        <div className="h-full w-full border-4 border-tennis-green/30 m-auto relative">
+          {/* Center line */}
+          <div className="absolute top-0 bottom-0 left-1/2 w-1 bg-tennis-green/20 transform -translate-x-1/2" />
+          
+          {/* Service boxes */}
+          <div className="absolute top-1/4 bottom-1/4 left-0 right-0 border-2 border-tennis-green/20">
+            {/* Center service line */}
+            <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-tennis-green/20 transform -translate-x-1/2" />
+            
+            {/* Horizontal service line */}
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-tennis-green/20 transform -translate-y-1/2" />
           </div>
+          
+          {/* Baseline extras */}
+          <div className="absolute bottom-0 left-1/3 right-1/3 h-4 border-l-2 border-r-2 border-tennis-green/20" />
+          <div className="absolute top-0 left-1/3 right-1/3 h-4 border-l-2 border-r-2 border-tennis-green/20" />
         </div>
       </div>
 
@@ -26,9 +39,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="text-4xl font-bold tracking-tight text-tennis-dark sm:text-5xl md:text-6xl mb-6">
+            <h1 className="text-4xl font-bold tracking-tight text-tennis-green sm:text-5xl md:text-6xl mb-6">
               <span className="block">One platform for all your</span>
-              <span className="block text-tennis-blue mt-2">
+              <span className="block text-tennis-yellow mt-2 drop-shadow-sm">
                 tennis club needs
               </span>
             </h1>
@@ -51,13 +64,13 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" className="px-8 bg-tennis-blue hover:bg-tennis-blue/90">
+            <Button size="lg" className="px-8 bg-tennis-green hover:bg-tennis-green/90 text-white">
               Sign Up for Matches
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="group"
+              className="group border-tennis-green text-tennis-green hover:bg-tennis-green/10"
             >
               View Match Results
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

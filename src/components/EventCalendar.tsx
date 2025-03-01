@@ -66,7 +66,7 @@ const getTypeColor = (type: string) => {
     case "social":
       return "bg-purple-500 text-white";
     case "meeting":
-      return "bg-amber-500 text-white";
+      return "bg-tennis-yellow text-tennis-dark";
     default:
       return "bg-gray-500 text-white";
   }
@@ -116,7 +116,7 @@ export function EventCalendar() {
   }, [date]);
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-tennis-light">
+    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -125,7 +125,7 @@ export function EventCalendar() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-tennis-dark mb-4">
+          <h2 className="text-3xl font-bold text-tennis-green mb-4">
             Club Calendar
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -143,7 +143,7 @@ export function EventCalendar() {
             transition={{ duration: 0.5 }}
             className="bg-white rounded-xl shadow-subtle overflow-hidden col-span-full md:col-span-1"
           >
-            <div className="bg-tennis-blue text-white p-4 text-center">
+            <div className="bg-tennis-green text-white p-4 text-center">
               <h3 className="font-medium">
                 {date ? format(date, 'MMMM yyyy') : 'Select a date'}
               </h3>
@@ -158,14 +158,14 @@ export function EventCalendar() {
                   hasEvent: (date) => hasEventOnDate(date, events)
                 }}
                 modifiersClassNames={{
-                  hasEvent: "bg-tennis-blue/10 text-tennis-blue font-medium"
+                  hasEvent: "bg-tennis-green/10 text-tennis-green font-medium"
                 }}
               />
               <div className="mt-4 flex flex-wrap gap-2">
                 <Badge className="bg-tennis-blue">Matches</Badge>
                 <Badge className="bg-tennis-green">Training</Badge>
                 <Badge className="bg-purple-500">Social</Badge>
-                <Badge className="bg-amber-500">Meetings</Badge>
+                <Badge className="bg-tennis-yellow text-tennis-dark">Meetings</Badge>
               </div>
             </div>
           </motion.div>
@@ -179,7 +179,7 @@ export function EventCalendar() {
             className="bg-white rounded-xl shadow-subtle col-span-full md:col-span-2"
           >
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-4">
+              <h3 className="text-xl font-semibold mb-4 text-tennis-green">
                 {selectedEvents.length > 0 
                   ? `Events on ${date ? format(date, 'MMMM d, yyyy') : ''}` 
                   : "Upcoming Events"}
@@ -192,7 +192,7 @@ export function EventCalendar() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: i * 0.1 }}
-                    className="flex items-start p-4 rounded-lg border border-gray-100 hover:border-tennis-blue/30 hover:bg-blue-50/30 transition-colors animate-hover"
+                    className="flex items-start p-4 rounded-lg border border-gray-100 hover:border-tennis-green/30 hover:bg-tennis-green/5 transition-colors animate-hover"
                   >
                     <div className="mr-4 w-16 h-16 flex flex-col items-center justify-center rounded-lg bg-muted text-center">
                       <span className="text-sm text-muted-foreground">
@@ -231,7 +231,7 @@ export function EventCalendar() {
               </div>
               
               <div className="mt-6 flex justify-center">
-                <Button className="bg-tennis-blue hover:bg-tennis-blue/90">
+                <Button className="bg-tennis-green hover:bg-tennis-green/90 text-white">
                   View Full Calendar
                 </Button>
               </div>

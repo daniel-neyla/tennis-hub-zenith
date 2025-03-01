@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -30,8 +29,8 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				tennis: {
-					green: '#0D8A52',
-					yellow: '#F0D252',
+					green: 'rgb(38,68,41)',
+					yellow: 'rgb(253,220,38)',
 					blue: '#3A82EE',
 					light: '#F5F5F7',
 					dark: '#1D1D1F',
