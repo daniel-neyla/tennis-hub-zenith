@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CalendarClock, MapPin, Users } from "lucide-react";
+import { CalendarClock, MapPin, Users, CalendarRange } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
@@ -125,9 +125,12 @@ export function EventCalendar() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-tennis-green mb-4">
-            Club Calendar
-          </h2>
+          <div className="flex items-center justify-center gap-3 mb-4 text-tennis-green">
+            <CalendarRange className="h-8 w-8 " />
+            <h2 className="text-3xl font-bold">
+              Club Calendar
+            </h2>
+          </div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Stay organized with our comprehensive calendar of matches, training sessions,
             social events, and important club deadlines.

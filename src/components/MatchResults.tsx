@@ -2,7 +2,7 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Mock data for match results
@@ -82,9 +82,12 @@ export function MatchResults() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-tennis-dark mb-4">
-            Match Results & Stats
-          </h2>
+          <div className="flex items-center justify-center mb-4 gap-3 text-tennis-green">
+            <Trophy className="h-8 w-8" />
+            <h2 className="text-3xl font-bold">
+              Match Results & Stats
+            </h2>
+          </div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Track our teams' performances throughout the season with up-to-date
             results and comprehensive statistics.
