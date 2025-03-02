@@ -34,7 +34,7 @@ export function SignUpSystem() {
   ];
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8">
+    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-tennis-green text-white">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
@@ -43,10 +43,14 @@ export function SignUpSystem() {
           transition={{ duration: 0.7 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-tennis-dark mb-4">
-            Simplified BUCS Match Sign-Ups
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+        
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Trophy className="h-8 w-8 text-tennis-yellow" />
+            <h2 className="text-3xl font-bold text-tennis-white">
+              Simplified BUCS Match Sign-Ups
+            </h2>
+          </div>
+          <p className="text-muted-foreground text-white/80 max-w-2xl mx-auto">
             Our ranking-based system makes registering for matches easier 
             than ever. No more forms in group chats or missed deadlines.
           </p>

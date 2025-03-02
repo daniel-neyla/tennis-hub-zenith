@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { FeatureCard } from "@/components/FeatureCard";
+import { LatestNews } from "@/components/LatestNews";
 import { MatchResults } from "@/components/MatchResults";
 import { SignUpSystem } from "@/components/SignUpSystem";
 import { MatchReports } from "@/components/MatchReports";
 import { EventCalendar } from "@/components/EventCalendar";
-import { LatestNews } from "@/components/LatestNews";
 import { Footer } from "@/components/Footer";
 import { 
   CalendarRange, 
@@ -104,21 +104,20 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
-      {/* Latest News & Announcements */}
+      {/* Latest News Section */}
       <LatestNews />
-      
+
+      {/* Event Calendar */}
+      <EventCalendar />
+
+      {/* Sign-Up System */}
+      <SignUpSystem />
+
       {/* Match Results Section */}
       <MatchResults />
       
-      {/* Sign-Up System */}
-      <SignUpSystem />
-      
       {/* Match Reports */}
       <MatchReports />
-      
-      {/* Event Calendar */}
-      <EventCalendar />
       
       {/* Footer */}
       <Footer />
