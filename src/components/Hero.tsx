@@ -13,10 +13,10 @@ export function Hero() {
       {/* Tennis court T-line cross only */}
       <div className="absolute inset-0 z-0 hidden md:block">
   {/* Center line (vertical part of T) */}
-  <div className="absolute top-0 bottom-0 left-[22%] w-3 bg-white transform -translate-x-1/2" />
+  <div className="absolute top-0 bottom-0 left-[22%] w-6 bg-white/30 transform -translate-x-1/2" />
   
   {/* Horizontal part of T */}
-  <div className="absolute top-[28%] left-0 right-0 h-3 bg-white transform -translate-y-1/2" />
+  <div className="absolute top-[28%] left-0 right-0 h-6 bg-white/30 transform -translate-y-1/2" />
 </div>
 
       <div className="container relative z-10 px-4 sm:px-6 lg:px-8 mx-auto">

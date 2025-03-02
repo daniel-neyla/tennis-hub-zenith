@@ -110,14 +110,15 @@ const Index = () => {
       {/* Event Calendar */}
       <EventCalendar />
 
-      {/* Sign-Up System */}
-      <SignUpSystem />
+      
+      {/* Match Reports */}
+      <MatchReports />
 
       {/* Match Results Section */}
       <MatchResults />
       
-      {/* Match Reports */}
-      <MatchReports />
+      {/* Sign-Up System */}
+      <SignUpSystem />
       
       {/* Footer */}
       <Footer />

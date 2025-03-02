@@ -60,7 +60,7 @@ const events = [
 const getTypeColor = (type: string) => {
   switch (type) {
     case "match":
-      return "bg-tennis-blue text-white";
+      return "bg-orange-500 text-white";
     case "training":
       return "bg-tennis-green text-white";
     case "social":
@@ -116,7 +116,7 @@ export function EventCalendar() {
   }, [date]);
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-tennis-light">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -162,7 +162,7 @@ export function EventCalendar() {
                 }}
               />
               <div className="mt-4 flex flex-wrap gap-2">
-                <Badge className="bg-tennis-blue">Matches</Badge>
+                <Badge className="bg-orange-500">Matches</Badge>
                 <Badge className="bg-tennis-green">Training</Badge>
                 <Badge className="bg-purple-500">Social</Badge>
                 <Badge className="bg-tennis-yellow text-tennis-dark">Meetings</Badge>

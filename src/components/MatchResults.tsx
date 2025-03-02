@@ -151,7 +151,7 @@ export function MatchResults() {
               </div>
               
               <div className="flex justify-center mt-8">
-                <Button className="bg-tennis-blue hover:bg-tennis-blue/90">
+                <Button className="bg-tennis-green hover:bg-tennis-green/90">
                   View All {team} Results
                 </Button>
               </div>

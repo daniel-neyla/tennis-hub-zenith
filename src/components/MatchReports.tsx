@@ -48,7 +48,7 @@ export function MatchReports() {
   ];
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-tennis-green">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,10 +57,15 @@ export function MatchReports() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-tennis-dark mb-4">
-            Match Reports & Stories
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+
+            <div className="flex items-center justify-center gap-3 mb-4">
+            <MessageSquare className="h-8 w-8 text-tennis-yellow" />
+            <h2 className="text-3xl font-bold text-white">
+              Match Reports & Stories
+            </h2>
+          </div>
+          
+          <p className="text-muted-foreground max-w-2xl mx-auto text-white/80">
             Read the latest match reports from our players and stay updated with the
             highlights, challenges, and achievements from every match.
           </p>
@@ -83,10 +88,10 @@ export function MatchReports() {
               {/* Card content */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
               
-              <div className="p-6 bg-white h-full flex flex-col relative z-10">
+              <div className="p-6 bg-tennis-light h-full flex flex-col relative z-10">
                 <div className="flex items-center gap-3 mb-4">
                   <Avatar className="h-8 w-8">
-                    <AvatarFallback className="bg-tennis-blue text-white text-xs">
+                    <AvatarFallback className="bg-tennis-green text-white text-xs">
                       {report.authorInitials}
                     </AvatarFallback>
                   </Avatar>
@@ -96,7 +101,7 @@ export function MatchReports() {
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-tennis-blue transition-colors">
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-tennis-green transition-colors">
                   {report.title}
                 </h3>
                 
@@ -109,14 +114,14 @@ export function MatchReports() {
                     <Badge 
                       key={tag} 
                       variant="secondary" 
-                      className="text-xs font-normal"
+                      className="text-xs font-normal bg-tennis-green/20"
                     >
                       {tag}
                     </Badge>
                   ))}
                 </div>
                 
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                   <div className="flex items-center gap-4">
                     <div className="flex items-center text-muted-foreground text-sm">
                       <Heart className="h-4 w-4 mr-1" />
@@ -147,7 +152,7 @@ export function MatchReports() {
           transition={{ duration: 0.5 }}
           className="flex justify-center"
         >
-          <Button className="bg-tennis-blue hover:bg-tennis-blue/90">
+          <Button className="text-tennis-green bg-white hover:bg-white/90">
             Read All Match Reports
           </Button>
         </motion.div>
