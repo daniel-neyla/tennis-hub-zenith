@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -99,14 +99,28 @@ export function Header() {
             </Link>
           ))}
 
-          <Button className={cn(
-            "ml-2",
-            isScrolled 
-              ? "bg-tennis-green text-white hover:bg-tennis-green/90" 
-              : "bg-tennis-yellow text-tennis-green hover:bg-tennis-yellow/90"
-          )}>
-            Member Login
-          </Button>
+          <div className="flex items-center space-x-2 ml-2">
+            <Link to="/login">
+              <Button variant="outline" className={cn(
+                isScrolled
+                  ? "border-tennis-green text-tennis-green hover:bg-tennis-green/10"
+                  : "border-white text-white hover:bg-white/10"
+              )}>
+                <LogIn className="h-4 w-4 mr-2" />
+                Sign In
+              </Button>
+            </Link>
+            <Link to="/register">
+              <Button className={cn(
+                isScrolled 
+                  ? "bg-tennis-green text-white hover:bg-tennis-green/90" 
+                  : "bg-tennis-yellow text-tennis-green hover:bg-tennis-yellow/90"
+              )}>
+                <UserPlus className="h-4 w-4 mr-2" />
+                Register
+              </Button>
+            </Link>
+          </div>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -148,12 +162,22 @@ export function Header() {
                 {link.name}
               </Link>
             ))}
-            <Button className="w-full mt-4 bg-tennis-yellow text-tennis-green hover:bg-tennis-yellow/90">
-              Member Login
-            </Button>
+            <Link to="/login" className="w-full">
+              <Button variant="outline" className="w-full border-white text-white hover:bg-white/10 mt-4">
+                <LogIn className="h-4 w-4 mr-2" />
+                Sign In
+              </Button>
+            </Link>
+            <Link to="/register" className="w-full">
+              <Button className="w-full bg-tennis-yellow text-tennis-green hover:bg-tennis-yellow/90">
+                <UserPlus className="h-4 w-4 mr-2" />
+                Register
+              </Button>
+            </Link>
           </nav>
         </div>
       </div>
     </header>
   );
 }
+
