@@ -8,6 +8,7 @@ import { MatchResults } from "@/components/MatchResults";
 import { SignUpSystem } from "@/components/SignUpSystem";
 import { MatchReports } from "@/components/MatchReports";
 import { EventCalendar } from "@/components/EventCalendar";
+import { LatestNews } from "@/components/LatestNews";
 import { Footer } from "@/components/Footer";
 import { 
   CalendarRange, 
@@ -103,6 +104,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* Latest News & Announcements */}
+      <LatestNews />
       
       {/* Match Results Section */}
       <MatchResults />
