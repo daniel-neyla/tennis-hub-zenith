@@ -104,7 +104,7 @@ export function Header() {
               <Button variant="outline" className={cn(
                 isScrolled
                   ? "border-tennis-green text-tennis-green hover:bg-tennis-green/10"
-                  : "border-white text-white hover:bg-white/10"
+                  : "border-white bg-transparent text-white hover:bg-white/10 hover:text-white"
               )}>
                 <LogIn className="h-4 w-4 mr-2" />
                 Sign In
