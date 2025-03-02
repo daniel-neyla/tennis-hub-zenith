@@ -49,21 +49,30 @@ export function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
-        isScrolled ? "navbar-scrolled" : "navbar-default"
+        isScrolled 
+          ? "bg-white shadow-md" 
+          : "bg-tennis-green"
       )}
     >
-      <div className="container flex items-center justify-between">
+      <div className="container flex items-center justify-between py-3">
         {/* Logo */}
         <Link
           to="/"
           className={cn(
             "text-2xl font-bold relative z-20 flex items-center",
-            isScrolled ? "logo-scrolled" : "logo-default"
+            isScrolled 
+              ? "text-tennis-green" 
+              : "text-white"
           )}
           onClick={handleHomeClick}
         >
-          <span className="text-tennis-blue">EULTC</span>
-          <span className="text-sm text-tennis-yellow text-muted-foreground ml-2 hidden sm:inline">
+          <span>EULTC</span>
+          <span className={cn(
+            "text-sm ml-2 hidden sm:inline",
+            isScrolled 
+              ? "text-tennis-yellow" 
+              : "text-tennis-yellow"
+          )}>
             Tennis Club
           </span>
         </Link>
@@ -77,8 +86,12 @@ export function Header() {
               className={cn(
                 "px-4 py-2 rounded-md text-base font-medium transition-colors",
                 location.pathname === link.href
-                  ? "text-tennis-blue"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  ? isScrolled 
+                    ? "text-tennis-green bg-tennis-yellow/20" 
+                    : "text-tennis-yellow bg-white/10"
+                  : isScrolled 
+                    ? "text-gray-700 hover:text-tennis-green hover:bg-gray-100" 
+                    : "text-white hover:text-tennis-yellow hover:bg-white/10"
               )}
               onClick={link.name === "Home" ? handleHomeClick : undefined}
             >
@@ -86,14 +99,22 @@ export function Header() {
             </Link>
           ))}
 
-          <Button className="ml-2 bg-tennis-blue text-tennis-yellow hover:bg-tennis-blue/90">
+          <Button className={cn(
+            "ml-2",
+            isScrolled 
+              ? "bg-tennis-green text-white hover:bg-tennis-green/90" 
+              : "bg-tennis-yellow text-tennis-green hover:bg-tennis-yellow/90"
+          )}>
             Member Login
           </Button>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-tennis-dark z-20"
+          className={cn(
+            "md:hidden z-20", 
+            isScrolled ? "text-tennis-green" : "text-white"
+          )}
           onClick={toggleMobileMenu}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -107,8 +128,9 @@ export function Header() {
         {/* Mobile Menu */}
         <div
           className={cn(
-            "fixed inset-0 bg-white z-10 flex flex-col px-6 py-24 transition-transform duration-300 ease-in-out md:hidden",
-            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            "fixed inset-0 flex flex-col px-6 py-24 transition-transform duration-300 ease-in-out md:hidden z-10",
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full",
+            "bg-tennis-green"
           )}
         >
           <nav className="flex flex-col space-y-4 items-center">
@@ -119,14 +141,14 @@ export function Header() {
                 className={cn(
                   "px-4 py-3 w-full text-center text-lg font-medium rounded-md transition-colors",
                   location.pathname === link.href
-                    ? "text-tennis-blue bg-blue-50"
-                    : "text-tennis-dark hover:bg-muted"
+                    ? "text-tennis-green bg-tennis-yellow"
+                    : "text-white hover:bg-white/10"
                 )}
               >
                 {link.name}
               </Link>
             ))}
-            <Button className="w-full mt-4 bg-tennis-blue hover:bg-tennis-blue/90">
+            <Button className="w-full mt-4 bg-tennis-yellow text-tennis-green hover:bg-tennis-yellow/90">
               Member Login
             </Button>
           </nav>

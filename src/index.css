@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -140,32 +141,6 @@ html {
 }
 
 /* Custom animations */
-.navbar {
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.navbar-scrolled {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: black;
-}
-
-.navbar-default {
-  background-color: transparent;
-  color: white;
-}
-
-.logo {
-  transition: color 0.3s;
-}
-
-.logo-scrolled {
-  color: black;
-}
-
-.logo-default {
-  color: white;
-}
-
 
 .animate-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -197,6 +172,3 @@ html {
   transform: translateY(-20px);
   transition: opacity 0.4s, transform 0.4s;
 }
-
-
-
