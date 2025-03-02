@@ -11,13 +11,13 @@ export function Hero() {
       <div className="absolute inset-0 bg-tennis-green z-0" />
       
       {/* Tennis court T-line cross only */}
-      <div className="absolute inset-0 z-0">
-        {/* Center line (vertical part of T) */}
-        <div className="absolute top-0 bottom-0 left-1/2 w-1 bg-white/20 transform -translate-x-1/2" />
-        
-        {/* Horizontal part of T */}
-        <div className="absolute top-1/2 left-0 right-0 h-1 bg-white/20 transform -translate-y-1/2" />
-      </div>
+      <div className="absolute inset-0 z-0 hidden md:block">
+  {/* Center line (vertical part of T) */}
+  <div className="absolute top-0 bottom-0 left-[22%] w-3 bg-white transform -translate-x-1/2" />
+  
+  {/* Horizontal part of T */}
+  <div className="absolute top-[28%] left-0 right-0 h-3 bg-white transform -translate-y-1/2" />
+</div>
 
       <div className="container relative z-10 px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-4xl mx-auto text-center">
@@ -57,7 +57,7 @@ export function Hero() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="group border-white text-white hover:bg-white/10"
+              className="group border-white text-tennis-green hover:text-white hover:bg-white/10"
             >
               View Match Results
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -68,7 +68,7 @@ export function Hero() {
 
       {/* Tennis ball decoration */}
       <motion.div 
-        className="absolute bottom-[10%] right-[8%] w-16 h-16 rounded-full bg-tennis-yellow opacity-80 z-0"
+        className="absolute bottom-[10%] right-[8%] w-16 h-16 rounded-full bg-tennis-yellow opacity-80 z-0 overflow-hidden"
         animate={{ 
           y: [0, -15, 0],
         }}
@@ -77,10 +77,16 @@ export function Hero() {
           repeat: Infinity,
           ease: "easeInOut" 
         }}
-      />
+      >
+        {/* Curved lines for the tennis ball */}
+  <div className="absolute inset-0">
+    <div className="absolute w-full h-full before:content-[''] before:absolute before:w-full before:h-full before:rounded-full before:border-4 before:border-white before:left-[-65%]"></div>
+    <div className="absolute w-full h-full after:content-[''] after:absolute after:w-full after:h-full after:rounded-full after:border-4 after:border-white after:right-[-65%]"></div>
+  </div>
+  </motion.div>
       
       <motion.div 
-        className="absolute top-[15%] left-[12%] w-8 h-8 rounded-full bg-tennis-yellow opacity-60 z-0"
+        className="absolute top-[15%] left-[12%] w-8 h-8 rounded-full bg-tennis-yellow opacity-60 z-0 overflow-hidden"
         animate={{ 
           y: [0, -10, 0],
         }}
@@ -90,7 +96,14 @@ export function Hero() {
           ease: "easeInOut",
           delay: 0.5
         }}
-      />
+      >
+         {/* Curved lines for the tennis ball */}
+  <div className="absolute inset-0">
+    <div className="absolute w-full h-full before:content-[''] before:absolute before:w-full before:h-full before:rounded-full before:border-2 before:border-white before:left-[-65%]"></div>
+    <div className="absolute w-full h-full after:content-[''] after:absolute after:w-full after:h-full after:rounded-full after:border-2 after:border-white after:right-[-65%] "></div>
+  </div>
+  </motion.div>
+
     </div>
   );
 }

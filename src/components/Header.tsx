@@ -41,23 +41,29 @@ export function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const handleHomeClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
-        isScrolled
-          ? "py-3 bg-white/80 backdrop-blur-md shadow-subtle"
-          : "py-5 bg-transparent"
+        isScrolled ? "navbar-scrolled" : "navbar-default"
       )}
     >
       <div className="container flex items-center justify-between">
         {/* Logo */}
         <Link
           to="/"
-          className="text-2xl font-bold text-tennis-dark relative z-20 flex items-center"
+          className={cn(
+            "text-2xl font-bold relative z-20 flex items-center",
+            isScrolled ? "logo-scrolled" : "logo-default"
+          )}
+          onClick={handleHomeClick}
         >
           <span className="text-tennis-blue">EULTC</span>
-          <span className="text-sm text-muted-foreground ml-2 hidden sm:inline">
+          <span className="text-sm text-tennis-yellow text-muted-foreground ml-2 hidden sm:inline">
             Tennis Club
           </span>
         </Link>
@@ -74,12 +80,13 @@ export function Header() {
                   ? "text-tennis-blue"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted"
               )}
+              onClick={link.name === "Home" ? handleHomeClick : undefined}
             >
               {link.name}
             </Link>
           ))}
 
-          <Button className="ml-2 bg-tennis-blue hover:bg-tennis-blue/90">
+          <Button className="ml-2 bg-tennis-blue text-tennis-yellow hover:bg-tennis-blue/90">
             Member Login
           </Button>
         </nav>
