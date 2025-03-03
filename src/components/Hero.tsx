@@ -50,23 +50,16 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+            className="mt-10"
           >
-            <Link to="/login">
-              <Button size="lg" className="px-8 bg-tennis-yellow hover:bg-tennis-yellow/90 text-tennis-green font-medium">
-                <LogIn className="h-4 w-4 mr-2" />
-                Sign In
-              </Button>
-            </Link>
-            <Link to="/register">
+            <Link to="/register" className="w-full sm:w-auto">
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="group border-white text-white hover:text-white hover:bg-white/10"
+                className="w-48 h-12 text-lg group bg-tennis-yellow text-tennis-green hover:text-white hover:bg-white/10"
               >
-                <UserPlus className="h-4 w-4 mr-2" />
-                Register
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                Join the Club
+                <ArrowRight className="ml-2" />
               </Button>
             </Link>
           </motion.div>

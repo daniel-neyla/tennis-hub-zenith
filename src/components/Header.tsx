@@ -12,8 +12,8 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
+  { name: "News", href: "/news" },
   { name: "Match Results", href: "/results" },
-  { name: "Sign Up", href: "/signup" },
   { name: "Match Reports", href: "/reports" },
   { name: "Calendar", href: "/calendar" },
 ];
@@ -68,17 +68,14 @@ export function Header() {
         >
           <span>EULTC</span>
           <span className={cn(
-            "text-sm ml-2 hidden sm:inline",
-            isScrolled 
-              ? "text-tennis-yellow" 
-              : "text-tennis-yellow"
+            "text-sm ml-2 hidden sm:inline text-tennis-yellow",
           )}>
             Tennis Club
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1">
+        <nav className="hidden lg:flex items-center space-x-1">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -99,7 +96,7 @@ export function Header() {
             </Link>
           ))}
 
-          <div className="flex items-center space-x-2 ml-2">
+         <div className="flex items-center space-x-2 ml-2">
             <Link to="/login">
               <Button variant="outline" className={cn(
                 isScrolled
@@ -120,13 +117,13 @@ export function Header() {
                 Register
               </Button>
             </Link>
-          </div>
+          </div> 
         </nav>
 
         {/* Mobile Menu Button */}
         <button
           className={cn(
-            "md:hidden z-20", 
+            "lg:hidden z-20", 
             isScrolled ? "text-tennis-green" : "text-white"
           )}
           onClick={toggleMobileMenu}
@@ -142,7 +139,7 @@ export function Header() {
         {/* Mobile Menu */}
         <div
           className={cn(
-            "fixed inset-0 flex flex-col px-6 py-24 transition-transform duration-300 ease-in-out md:hidden z-10",
+            "fixed inset-0 flex flex-col px-6 py-24 transition-transform duration-300 ease-in-out lg:hidden z-10",
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full",
             "bg-tennis-green"
           )}
@@ -163,7 +160,7 @@ export function Header() {
               </Link>
             ))}
             <Link to="/login" className="w-full">
-              <Button variant="outline" className="w-full border-white text-white hover:bg-white/10 mt-4">
+              <Button variant="outline" className="w-full border-white text-tennis-green hover:text-white hover:bg-white/10 mt-4">
                 <LogIn className="h-4 w-4 mr-2" />
                 Sign In
               </Button>

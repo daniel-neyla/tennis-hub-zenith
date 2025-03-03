@@ -21,6 +21,9 @@ export default {
 			}
 		},
 		extend: {
+			screens: {
+				'lg': '1048px', 
+			  },
 			fontFamily: {
 				sans: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
 				heading: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
