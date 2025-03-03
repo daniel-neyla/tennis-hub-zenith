@@ -1,3 +1,4 @@
+
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
@@ -11,6 +12,16 @@ html {
   
   .animate-hover:hover {
     transform: translateY(-5px);
+  }
+  
+  /* News card animations */
+  .news-card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .news-card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
   
   /* Page transitions */
@@ -35,4 +46,3 @@ html {
     transform: translateY(-20px);
     transition: opacity 0.4s, transform 0.4s;
   }
-  
