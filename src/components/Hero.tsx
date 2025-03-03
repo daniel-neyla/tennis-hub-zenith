@@ -2,7 +2,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, LogIn, UserPlus } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Hero() {
   return (
@@ -51,17 +52,23 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" className="px-8 bg-tennis-yellow hover:bg-tennis-yellow/90 text-tennis-green font-medium">
-              Sign Up for Matches
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="group border-white text-tennis-green hover:text-white hover:bg-white/10"
-            >
-              View Match Results
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <Link to="/login">
+              <Button size="lg" className="px-8 bg-tennis-yellow hover:bg-tennis-yellow/90 text-tennis-green font-medium">
+                <LogIn className="h-4 w-4 mr-2" />
+                Sign In
+              </Button>
+            </Link>
+            <Link to="/register">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="group border-white text-white hover:text-white hover:bg-white/10"
+              >
+                <UserPlus className="h-4 w-4 mr-2" />
+                Register
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </div>
